@@ -1,9 +1,10 @@
+import './PagedListFav.css';
 import React, { useEffect, useState } from 'react';
 import Share from "../ShareCards/Share";
 import { FetchShareListPaged } from '../../servicos/InvestimentosAPI';
-import './PagedList.css'
 
-const PagedList: React.FC = () => {
+
+const PagedListFav: React.FC = () => {
     const [shares, setShares] = useState<any[]>([]);
     const [page, setPage] = useState(1);
     const [resultsPerPage] = useState(6); // 6 resultados por página
@@ -68,4 +69,4 @@ const PagedList: React.FC = () => {
     );
 }
 
-export default PagedList;
+export default PagedListFav;

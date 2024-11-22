@@ -2,12 +2,16 @@ import { useState } from "react";
 import { LoginData } from "../../interfaces/LoginInterface";
 import { LoginAPI } from "../../servicos/InvestimentosAPI";
 import './Login.css';
+import { useNavigate } from "react-router-dom";
+
 
 const Login = () => {
     const [loginData, setLoginData] = useState<LoginData>({
         email: '',
         password: ''
     });
+
+    const navigate = useNavigate();
 
     const handleLogin = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
@@ -26,6 +30,7 @@ const Login = () => {
                 sessionStorage.setItem('token', response.data.token);
                 const testeRecuperaDado = sessionStorage.getItem('token');
                 alert('Dado Recuperado do session storage: ' + testeRecuperaDado);
+                navigate("/paginas")
             } else {
                 alert('Falha no login');
             }

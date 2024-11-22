@@ -1,0 +1,15 @@
+.verticalbar {
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    width: 444px; 
+    height: 300vh;
+    background-color: #696969;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: flex-start; 
+    padding: 10px 0; 
+    z-index: 1000; 
+    box-shadow: black 3px 3px 3px 3px;   
+}
+

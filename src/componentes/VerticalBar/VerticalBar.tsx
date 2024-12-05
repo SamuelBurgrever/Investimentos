@@ -10,9 +10,13 @@ const VerticalBar = () => {
                     <h1>INVESTIMENTOS</h1>                
                     <Leave/>
                 </div>
+                <div>
+                    <img className="logo" src="src\assets\INVESTI.png"></img>
+                </div>
             </nav> 
+            
         </>
-    );
+        );
 
 }
 

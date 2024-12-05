@@ -2,14 +2,14 @@ import axios from 'axios';
 import { LoginData } from '../interfaces/LoginInterface';
 
 const apiClient = axios.create({
-    baseURL: 'https://37b4pnp5-5165.brs.devtunnels.ms/api',
+    baseURL: 'https://tcwhl22p-5165.brs.devtunnels.ms',
     headers:{
         'Content-Type': 'application/json'
     }
 })
 
 export const LoginAPI =(loginData: LoginData)=>{
-    return apiClient.post('/Login/login', loginData)
+    return apiClient.post('/api/Login/login', loginData)
 }
 
 

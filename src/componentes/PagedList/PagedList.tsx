@@ -5,7 +5,7 @@ import './PagedList.css'
 
 const PagedList: React.FC = () => {
     const [shares, setShares] = useState<any[]>([]);
-    const [page, setPage] = useState(1);
+    const [page, setPage] = useState(2);
     const [resultsPerPage] = useState(6); // 6 resultados por página
     useEffect(() => {
         const fetchShares = async () => {

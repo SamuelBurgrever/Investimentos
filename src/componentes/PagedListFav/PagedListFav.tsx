@@ -1,13 +1,13 @@
-import './PagedListFav.css';
 import React, { useEffect, useState } from 'react';
 import Share from "../ShareCards/Share";
 import { FetchShareListPaged } from '../../servicos/InvestimentosAPI';
 
 
-const PagedListFav: React.FC = () => {
+const PagedList: React.FC = () => {
     const [shares, setShares] = useState<any[]>([]);
-    const [page, setPage] = useState(1);
+    const [page] = useState(1);
     const [resultsPerPage] = useState(6); // 6 resultados por página
+
     useEffect(() => {
         const fetchShares = async () => {
             try {
@@ -17,8 +17,10 @@ const PagedListFav: React.FC = () => {
                 console.error('Erro ao carregar ações: ', error);
             }
         };
+
         fetchShares();
     }, [page, resultsPerPage]);
+
     return (
         <>
             <div id="carouselExampleInterval" className="carousel slide" data-bs-ride="carousel">
@@ -27,7 +29,7 @@ const PagedListFav: React.FC = () => {
                         <div className="carousel-item active" data-bs-interval="10000">
                             <div className="row">
                                 {shares.map((share, index) => (
-                                    <div className="col-4card-spacing" key={index}>
+                                    <div className="col-4 card-spacing" key={index}>
                                         <Share 
                                             logoUrl={share.logoUrl} 
                                             longName={share.longName} 
@@ -43,19 +45,6 @@ const PagedListFav: React.FC = () => {
                     )}
                 </div>
 
-                <div className="row">
-                            <div className="card-spacing">
-                                <Share logoUrl="https://s3-symbol-logo.tradingview.com/brasileiro-petrobras--big.svg" longName="Petróleo Brasileiro S.A. - Petrobras" symbol="PETR4" regularMarketPrice="2,000"/>
-                            </div>
-                            <div className="card-spacing">
-                                <Share logoUrl="https://s3-symbol-logo.tradingview.com/brasileiro-petrobras--big.svg" longName="Petróleo Brasileiro S.A. - Petrobras" symbol="PETR4" regularMarketPrice="2,000"/>
-                            </div>
-                            <div className="card-spacing">
-                                <Share logoUrl="https://s3-symbol-logo.tradingview.com/brasileiro-petrobras--big.svg" longName="Petróleo Brasileiro S.A. - Petrobras" symbol="PETR4" regularMarketPrice="2,000"/>
-                            </div>
-                </div>
-                
-
                 <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
                     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span className="visually-hidden">Previous</span>
@@ -69,4 +58,4 @@ const PagedListFav: React.FC = () => {
     );
 }
 
-export default PagedListFav;
+export default PagedList;
